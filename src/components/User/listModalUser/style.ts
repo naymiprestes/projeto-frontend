@@ -20,6 +20,8 @@ export const DivModal = styled.div`
   border-radius: 4px;
 
   .modal {
+    width: 200px;
+    height: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,7 +39,7 @@ export const DivModal = styled.div`
     flex-direction: row;
     justify-content: space-between;
 
-    padding: 4px 10px;
+    padding: 8px 10px;
 
     width: 100%;
 
@@ -45,7 +47,7 @@ export const DivModal = styled.div`
     border-radius: 4px 4px 0px 0px;
   }
 
-  .editTech {
+  .listUser {
     font-weight: 700;
     font-size: 0.8rem;
     line-height: 18px;
@@ -59,28 +61,13 @@ export const DivModal = styled.div`
     border: none;
     color: #868e96;
   }
-`;
 
-export const DivButton = styled.div`
-  box-shadow: 0px 4px 32px -8px rgba(0, 0, 0, 0.25);
-  padding: 0px 10px 24px 10px;
-
-  h2 {
-    font-size: 1rem;
-    text-align: center;
-  }
-  .divModal {
+  .divButton {
     display: flex;
     flex-direction: row;
-
-    gap: 24px;
-    margin-top: 16px;
-
-    font-weight: 500;
-    line-height: 26px;
   }
 
-  .editTech {
+  .deleteButtonContact {
     box-sizing: border-box;
 
     display: flex;
@@ -88,7 +75,7 @@ export const DivButton = styled.div`
     justify-content: center;
     align-items: center;
 
-    padding: 0px 22px;
+    margin-right: 10px;
 
     width: 94px;
     height: 38px;
@@ -97,15 +84,26 @@ export const DivButton = styled.div`
     border-radius: 4px;
     font-size: 0.6rem;
   }
+  h2 {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+`;
 
-  .deleteTech {
-    box-sizing: border-box;
-    padding: 0px 22px;
+export const DivButton = styled.div`
+  box-shadow: 0px 4px 32px -8px rgba(0, 0, 0, 0.25);
+  padding: 0px 10px 24px 10px;
 
-    width: 94px;
-    height: 38px;
+  p {
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 34px;
+    text-align: left;
+  }
 
-    border-radius: 4px;
-    font-size: 0.7rem;
+  strong {
+    margin-right: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
   }
 `;

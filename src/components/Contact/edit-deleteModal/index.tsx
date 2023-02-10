@@ -12,8 +12,8 @@ interface IEditContact {
 }
 
 const EditDeleteModalContact = () => {
-  const { setEditModalContacts, editContacts, id } = useContext(ContactContext);
-  console.log("id", id);
+  const { setEditModalContacts, editContacts, idContact } =
+    useContext(ContactContext);
 
   const formEdit = yup.object().shape({
     name: yup.string().optional(),
@@ -40,20 +40,33 @@ const EditDeleteModalContact = () => {
             X
           </button>
         </div>
-        <Form onSubmit={() => editContacts}>
+        <Form onSubmit={handleSubmit(editContacts)}>
           <label htmlFor="name">Nome</label>
-          <input type="text" id="name" {...register("name")} />
+          <input
+            type="text"
+            id="name"
+            defaultValue={idContact?.name}
+            {...register("name")}
+          />
 
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" {...register("email")} />
+          <input
+            type="email"
+            id="email"
+            defaultValue={idContact?.email}
+            {...register("email")}
+          />
 
           <label htmlFor="number">Telefone</label>
-          <input type="text" id="number" {...register("number")} />
+          <input
+            type="string"
+            id="number"
+            defaultValue={idContact?.number}
+            {...register("number")}
+          />
 
           <div className="divModal">
-            <button className="editTech" type="submit">
-              Salvar alterações
-            </button>
+            <button className="editTech">Salvar alterações</button>
             <button className="deleteTech">Excluir</button>
           </div>
         </Form>

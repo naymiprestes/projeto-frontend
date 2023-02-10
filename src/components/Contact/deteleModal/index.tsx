@@ -1,30 +1,38 @@
 import { useContext } from "react";
 import { ContactContext } from "../../../context/ContactsContext";
-import { DivModal, Form } from "./style";
+import { DivButton, DivModal } from "./style";
 
 const DeleteModalContact = () => {
-  const { setDeleteModalContacts } = useContext(ContactContext);
+  const { setDeleteModalContacts, deleteContacts, idContact } =
+    useContext(ContactContext);
   return (
     <DivModal>
       <div className="modal">
         <div className="headeModal">
-          <h2 className="editTech"> Excluir Contato</h2>
+          <h2 className="deleteContact"> Excluir Contato</h2>
           <button
             className="buttonModal"
-            onClick={() => setDeleteModalContacts(false)}
+            onClick={() => {
+              setDeleteModalContacts(false);
+            }}
           >
             X
           </button>
         </div>
-        <Form>
-          <h2>Excluir, sem nome? </h2>
+        <DivButton>
+          <h2>Excluir, {idContact?.name}? </h2>
           <div className="divModal">
-            <button className="editTech" type="submit">
+            <button className="editTech" type="submit" onClick={deleteContacts}>
               Sim
             </button>
-            <button className="deleteTech">Não</button>
+            <button
+              className="deleteButtonContact"
+              onClick={() => setDeleteModalContacts(false)}
+            >
+              Não
+            </button>
           </div>
-        </Form>
+        </DivButton>
       </div>
     </DivModal>
   );

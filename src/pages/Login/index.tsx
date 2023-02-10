@@ -46,7 +46,7 @@ const Login = () => {
 
         <label htmlFor="password">Senha</label>
         <input
-          type="text"
+          type="password"
           id="password"
           placeholder="**********"
           {...register("password")}

@@ -45,7 +45,7 @@ export const DivModal = styled.div`
     border-radius: 4px 4px 0px 0px;
   }
 
-  .editTech {
+  .deleteContact {
     font-weight: 700;
     font-size: 0.8rem;
     line-height: 18px;
@@ -59,16 +59,7 @@ export const DivModal = styled.div`
     border: none;
     color: #868e96;
   }
-`;
 
-export const Form = styled.form`
-  box-shadow: 0px 4px 32px -8px rgba(0, 0, 0, 0.25);
-  padding: 0px 10px 24px 10px;
-
-  h2 {
-    font-size: 1rem;
-    text-align: center;
-  }
   .divModal {
     display: flex;
     flex-direction: row;
@@ -80,7 +71,12 @@ export const Form = styled.form`
     line-height: 26px;
   }
 
-  .editTech {
+  .divButton {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .deleteButtonContact {
     box-sizing: border-box;
 
     display: flex;
@@ -88,7 +84,7 @@ export const Form = styled.form`
     justify-content: center;
     align-items: center;
 
-    padding: 0px 22px;
+    margin-right: 10px;
 
     width: 94px;
     height: 38px;
@@ -97,16 +93,29 @@ export const Form = styled.form`
     border-radius: 4px;
     font-size: 0.6rem;
   }
+  h2 {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+`;
 
-  .deleteTech {
+export const DivButton = styled.div`
+  box-shadow: 0px 4px 32px -8px rgba(0, 0, 0, 0.25);
+  padding: 0px 10px 24px 10px;
+
+  .editTech {
     box-sizing: border-box;
-    padding: 0px 22px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
     width: 94px;
     height: 38px;
-    background: #4a4f55;
 
+    border: none;
     border-radius: 4px;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 `;

@@ -8,8 +8,10 @@ import { useNavigate } from "react-router-dom";
 import AddModalContact from "../../components/Contact/addModal";
 import DeleteModalContact from "../../components/Contact/deteleModal";
 import EditDeleteModalContact from "../../components/Contact/edit-deleteModal";
+import ListModalContact from "../../components/Contact/listModalContact";
 import DeleteModalUser from "../../components/User/deteleModal";
 import EditDeleteModalUser from "../../components/User/edit-deleteModal";
+import ListModalUser from "../../components/User/listModalUser";
 
 import { ContactContext } from "../../context/ContactsContext";
 
@@ -20,9 +22,10 @@ const DashboardUser = () => {
   const {
     user,
     editModalUser,
+    listModalUser,
     deleteModalUser,
-    setUser,
     setEditModalUser,
+    setListModalUser,
     setDeleteModalUser,
   } = useContext(UserContext);
 
@@ -31,10 +34,12 @@ const DashboardUser = () => {
     addModalContacts,
     editModalContacts,
     deleteModalContacts,
+    listModalContacts,
     setAddModalContacts,
     setEditModalContacts,
     setDeleteModalContacts,
-    setId,
+    setListModalContacts,
+    setIdContact,
   } = useContext(ContactContext);
 
   const navigate = useNavigate();
@@ -45,18 +50,23 @@ const DashboardUser = () => {
     navigate("/login", { replace: true });
   };
 
-  console.log("user", user);
-
   return (
     <Container>
       <ButtonUser>
-        <button className="edit" onClick={() => setEditModalUser(true)}>
+        <button
+          className="edit"
+          onClick={() => {
+            setEditModalUser(true);
+          }}
+        >
           Editar Usuário
         </button>
         <button className="delete" onClick={() => setDeleteModalUser(true)}>
           Excluir Usuário
         </button>
-        <button className="list">Listar Usuário</button>
+        <button className="list" onClick={() => setListModalUser(true)}>
+          Listar Usuário
+        </button>
       </ButtonUser>
       <div className="div">
         <div className="buttonExit">
@@ -84,13 +94,40 @@ const DashboardUser = () => {
                   <button
                     onClick={() => {
                       setEditModalContacts(true);
-                      setId(contact.id);
+                      setIdContact({
+                        id: contact.id,
+                        name: contact.name,
+                        email: contact.email,
+                        number: contact.number,
+                      });
                     }}
                   >
                     <AiOutlineEdit className="editContactS" />
                   </button>
-                  <AiOutlineContacts className="listContacts" />
-                  <button onClick={() => setDeleteModalContacts(true)}>
+                  <button
+                    onClick={() => {
+                      setListModalContacts(true);
+                      setIdContact({
+                        id: contact.id,
+                        name: contact.name,
+                        email: contact.email,
+                        number: contact.number,
+                      });
+                    }}
+                  >
+                    <AiOutlineContacts className="listContacts" />
+                  </button>
+                  <button
+                    onClick={() => {
+                      setDeleteModalContacts(true);
+                      setIdContact({
+                        id: contact.id,
+                        name: contact.name,
+                        email: contact.email,
+                        number: contact.number,
+                      });
+                    }}
+                  >
                     <AiOutlineDelete className="deleteContacts" />
                   </button>
                 </div>
@@ -101,8 +138,10 @@ const DashboardUser = () => {
           <span>Não há Contatos Cadastrados</span>
         )}
         {editModalUser && <EditDeleteModalUser />}
+        {listModalUser && <ListModalUser />}
         {deleteModalUser && <DeleteModalUser />}
 
+        {listModalContacts && <ListModalContact />}
         {addModalContacts && <AddModalContact />}
         {editModalContacts && <EditDeleteModalContact />}
         {deleteModalContacts && <DeleteModalContact />}

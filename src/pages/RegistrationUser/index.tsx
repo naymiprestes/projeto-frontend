@@ -71,7 +71,7 @@ const RegistrationUser = () => {
 
             <label htmlFor="password">Senha</label>
             <input
-              type="text"
+              type="password"
               id="password"
               placeholder="********"
               {...register("password")}
@@ -80,7 +80,7 @@ const RegistrationUser = () => {
 
             <label htmlFor="verPassword">Confirmar senha</label>
             <input
-              type="text"
+              type="password"
               id="verPassword"
               placeholder="********"
               {...register("verPassword")}

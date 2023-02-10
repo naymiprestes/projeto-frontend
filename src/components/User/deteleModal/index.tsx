@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { UserContext } from "../../../context/UserContext";
-import { DivModal, Form } from "./style";
+import { DivButton, DivModal } from "./style";
 
 const DeleteModalUser = () => {
-  const { setDeleteModalUser } = useContext(UserContext);
+  const { setDeleteModalUser, user, handleDelete } = useContext(UserContext);
   return (
     <DivModal>
       <div className="modal">
@@ -16,15 +16,15 @@ const DeleteModalUser = () => {
             X{" "}
           </button>
         </div>
-        <Form>
-          <h2>Excluir, sem nome? </h2>
+        <DivButton>
+          <h2>Excluir, {user?.name}? </h2>
           <div className="divModal">
-            <button className="editTech" type="submit">
+            <button className="editTech" onClick={handleDelete}>
               Sim
             </button>
-            <button className="deleteTech">Nao</button>
+            <button className="deleteTech">Não</button>
           </div>
-        </Form>
+        </DivButton>
       </div>
     </DivModal>
   );
