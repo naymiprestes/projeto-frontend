@@ -64,6 +64,7 @@ export const ButtonUser = styled.div`
     width: 200px;
     height: 40px;
     cursor: pointer;
+    background-color: none;
   }
 
   @media (min-width: 481px) {

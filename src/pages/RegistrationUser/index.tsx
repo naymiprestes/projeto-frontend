@@ -27,10 +27,10 @@ const RegistrationUser = () => {
       .string()
       .required("campo obrigatorio")
       .min(4, "A senha deve conter pelo menos 8 caracteres")
-      // .matches(
-      //   new RegExp("^(?=.*[a-za-z])(?=.*[0-9])(?=.*[!@#$%^&*])"),
-      //   "A senha deve conter letras, números e simbolos"
-      // )
+      .matches(
+        new RegExp("^(?=.*[a-za-z])(?=.*[0-9])(?=.*[!@#$%^&*])"),
+        "A senha deve conter letras, números e simbolos"
+      )
       .required("senha obrigatória"),
     verPassword: yup
       .string()
